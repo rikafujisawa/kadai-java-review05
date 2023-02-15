@@ -1,5 +1,4 @@
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -37,8 +36,9 @@ public class Review05 {
             System.out.print("検索キーワードを入力してください > ");
             String input = keyIn();
 
-            // PreparedStatementオブジェクトの?に値をセット // ← 追記
-            pstmt.setString(1, input); // ← 追記
+
+            // PreparedStatementオブジェクトの?に値をセット //
+            pstmt.setString(1, input); //
 
             rs = pstmt.executeQuery(); //
 
@@ -101,6 +101,9 @@ public class Review05 {
         }
     }
 
+    /*
+     * キーボードから入力された値をStringで返す 引数：なし 戻り値：入力された文字列
+     */
     private static String keyIn() {
         String line = null;
         try {
@@ -111,4 +114,16 @@ public class Review05 {
         }
         return line;
     }
+
+    /*
+     * キーボードから入力された値をintで返す 引数：なし 戻り値：int
+     */
+    private static int keyInNum() {
+        int result = 0;
+        try {
+            result = Integer.parseInt(keyIn());
+        } catch (NumberFormatException e) {
+        }
+        return result;
+}
 }
